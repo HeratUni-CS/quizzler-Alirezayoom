@@ -30,6 +30,7 @@ List<String> questions = [
   'Approximately one quarter of human bones are in the feet.',
   'A slug\'s blood is green.',
 ];
+List<bool> answers = [false, true, true];
 
 int questionNumber = 0;
 
@@ -69,6 +70,14 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctAnswer = answers[questionNumber];
+
+                if (correctAnswer == true) {
+                  print('that\'s true');
+                } else {
+                  print('that is wrong');
+                }
+
                 setState(() {
                   questionNumber++;
                 });
@@ -89,6 +98,14 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctAnswer = answers[questionNumber];
+
+                if (correctAnswer == false) {
+                  print('that is true');
+                } else {
+                  print('that is wrong');
+                }
+
                 setState(() {
                   questionNumber++;
                 });
