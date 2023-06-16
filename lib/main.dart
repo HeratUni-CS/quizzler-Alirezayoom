@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'question.dart';
 
 void main() => runApp(Quizzler());
 
@@ -31,6 +32,9 @@ List<String> questions = [
   'A slug\'s blood is green.',
 ];
 List<bool> answers = [false, true, true];
+
+Question question1 =
+    Question(q: 'You can lead a cow down stairs but not up stairs.', a: false);
 
 int questionNumber = 0;
 
