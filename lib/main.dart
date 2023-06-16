@@ -29,8 +29,6 @@ List<Icon> scoreKeeper = [];
 
 QuizBrain quizBrain = QuizBrain();
 
-int questionNumber = 0;
-
 class _QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
@@ -44,7 +42,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizBrain.getQuestionText(questionNumber),
+                quizBrain.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -67,7 +65,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                bool correctAnswer = quizBrain.getCorrectAnswer(questionNumber);
+                bool correctAnswer = quizBrain.getCorrectAnswer();
 
                 if (correctAnswer == true) {
                   print('that\'s true');
@@ -76,7 +74,7 @@ class _QuizPageState extends State<QuizPage> {
                 }
 
                 setState(() {
-                  questionNumber++;
+                  quizBrain.nextQuestion();
                 });
               },
             ),
@@ -95,7 +93,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                bool correctAnswer = quizBrain.getCorrectAnswer(questionNumber);
+                bool correctAnswer = quizBrain.getCorrectAnswer();
 
                 if (correctAnswer == false) {
                   print('that is true');
@@ -104,7 +102,7 @@ class _QuizPageState extends State<QuizPage> {
                 }
 
                 setState(() {
-                  questionNumber++;
+                  quizBrain.nextQuestion();
                 });
               },
             ),
